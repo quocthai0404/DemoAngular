@@ -1,0 +1,21 @@
+<h3>demo 5</h3>
+<button (click)="clickMe()">click </button> <br>
+<button value="white" (click)="changeBackground($event)">white </button>
+<button value="red" (click)="changeBackground($event)">red </button>
+<button value="blue" (click)="changeBackground($event)">blue </button>
+<button value="green" (click)="changeBackground($event)">green </button>
+<br>
+<button value="100x100" (click)="resize($event)">100x100</button> 
+<button value="200x200" (click)="resize($event)">200x200</button> 
+<button value="300x300" (click)="resize($event)">300x300</button> <br>
+<img src="{{img}}" width="{{width}}" height="{{height}}"> <br>
+<img src="assets/images/doremon.png" width="100px" height="100px" (click)="changePhoto($event)">
+<img src="assets/images/nobita.png" width="100px" height="100px" (click)="changePhoto($event)">
+<img src="assets/images/download3.png" width="100px" height="100px" (click)="changePhoto($event)">
+ <br> <br>
+A: <input type="text" [(ngModel)]="a">
+B: <input type="text" [(ngModel)]="b">
+<button (click)="cal($event)" value="area">Area</button> 
+<button (click)="cal($event)" value="per">Per</button>
+<br>
+{{result}}

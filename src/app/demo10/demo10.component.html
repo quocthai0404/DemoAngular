@@ -1,0 +1,148 @@
+<h2>Register</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="save()">
+  <table>
+    <tbody>
+      <tr>
+        <td>username</td>
+        <td>
+          <input
+            type="text"
+            formControlName="username"
+            class="ng-untouched ng-valid"
+          />
+        </td>
+        <td>
+          @if(registerForm.get('username').touched){
+            @if(registerForm.hasError('required',['username'])){
+                <span class="error">Username required</span>
+            } @if(registerForm.hasError('minlength',['username'])){
+                <span class="error">Username min lenght 3 unit</span>
+            } @if(registerForm.hasError('maxlength',['username'])){
+                <span class="error">Username max lenght 10 unit</span>
+            }@if(registerForm.hasError('exists',['username'])){
+              <span class="error">exists username</span>
+          } 
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>Password</td>
+        <td>
+          <input
+            type="text"
+            formControlName="password"
+            class="ng-untouched ng-valid"
+          />
+        </td>
+        <td>
+          @if(registerForm.get('password').touched){
+            @if(registerForm.hasError('required',['password'])){
+                <span class="error">Password required</span>
+            } @if(registerForm.hasError('pattern',['password'])){
+                <span class="error">Password easy</span>
+            } 
+         }
+        </td>
+      </tr>
+
+      <tr>
+        <td>Email</td>
+        <td>
+          <input
+            type="text"
+            formControlName="email"
+            class="ng-untouched ng-valid"
+          />
+        </td>
+        <td>
+          @if(registerForm.get('email').touched){
+            @if(registerForm.hasError('required',['email'])){
+                <span class="error">Email required</span>
+            } @if(registerForm.hasError('email',['email'])){
+                <span class="error">Email invalid</span>
+            } 
+          }
+        </td>
+      </tr>
+
+      <tr>
+        <td>Webside</td>
+        <td>
+          <input
+            type="text"
+            formControlName="website"
+            class="ng-untouched ng-valid"
+          />
+        </td>
+        <td>
+          @if(registerForm.get('website').touched){
+            @if(registerForm.hasError('pattern',['website'])){
+                <span class="error">webside invalid</span>
+            }
+          }
+        </td>
+      </tr>
+
+      <tr>
+        <td>Age</td>
+        <td>
+          <input
+            type="text"
+            formControlName="age"
+            class="ng-untouched ng-valid ng-pristine"
+          />
+        </td>
+        <td>
+          @if(registerForm.get('age').touched){
+          @if(registerForm.hasError('min',['age'])){
+          <span class="error">age > 17 </span>
+          } @if(registerForm.hasError('required',['age'])){
+          <span class="error">Age required</span>
+          } @if(registerForm.hasError('max',['age'])){
+          <span class="error">age < 60 </span>
+          } @if(registerForm.hasError('pattern',['age'])){
+          <span class="error">age invalid pattern </span>
+          } }
+        </td>
+      </tr>
+      <!-- ============= -->
+      
+      <tr>
+        <td>gender</td>
+        <td>
+          <select formControlName="gender">
+            <option value="">Select gender</option>
+            <option value="m">male</option>
+            <option value="f">female</option>
+          </select>
+        </td>
+        <td>
+          @if(registerForm.get('gender').touched){
+            @if(registerForm.hasError('required',['gender'])){
+              <span class="error">ko dc rong </span>}
+            }
+        </td>
+      </tr>
+      <tr>
+        <td>photo</td>
+        <td>
+          <input type="file" formControlName="photo" (change)="selectFile($event)">
+        </td>
+        <td>
+          @if(registerForm.get('photo').touched){
+            @if(registerForm.hasError('required',['photo'])){
+              <span class="error">invalid photo </span>
+            }
+          }
+        </td>
+      </tr>
+      <tr>
+        <td>&nbsp;</td>
+        <td>
+          <button type="submit" [disabled]="registerForm.invalid">Save</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</form>

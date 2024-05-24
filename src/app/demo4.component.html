@@ -1,0 +1,42 @@
+<h3>demo4</h3>
+{{result1}} <br>
+{{result2}}
+<br>
+
+@if(product!=null){
+    <table border="1">
+        <tbody>
+            <tr>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td><img src="assets/images/{{product.photo}}" width="50px" height="50px"></td>
+                <td>{{product.price}}</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+        </tbody>
+    </table>
+}@else{
+    <h2>not found</h2>
+}
+
+
+
+<table>
+    <tbody>
+        @for (p of products; track $index) {
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td><img src="assets/images/{{p.photo}}" width="50px" height="50px"></td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br>
+{{result4}}
+<br>
+area: {{area}} <br>
+per : {{per}}
+    

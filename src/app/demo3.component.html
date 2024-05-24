@@ -1,0 +1,23 @@
+<h3>demo 3</h3>
+<input type="text" [(ngModel)]="fullName"> <br>
+{{fullName}}
+<input type="checkbox" [(ngModel)]="status">
+{{status}} <br>
+<input type="radio" name="gender" value="m" [(ngModel)]="gender"> Male
+<input type="radio" name="gender" value="f" [(ngModel)]="gender"> Female
+{{gender}}
+
+<br>
+Role <select [(ngModel)]="roleId">
+    <option value="1" >role 1</option>
+    <option value="2" >role 2</option>
+    <option value="3" >role 3</option>
+    <option value="4" >role 4</option>
+</select>
+{{roleId}}
+<br>
+
+<img src="assets/images/doremon.png" width="{{width}}" height="{{height}}">
+<br>
+Width: <input type="text" [(ngModel)]="width">
+Height: <input type="text" [(ngModel)]="height">

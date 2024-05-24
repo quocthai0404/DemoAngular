@@ -1,0 +1,64 @@
+demo13
+<h3>categories</h3>
+<fieldset>
+    <legend>search by kw</legend>
+    kw: <input type="text" [(ngModel)]="kw"> <br>
+    <button type="button" (click)="search()">Search</button>
+</fieldset>
+@if(categories!=null){
+    <table border="1">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (category of categories; track category) {
+                <tr>
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+}
+
+@if(products!=null){
+    <table border="1">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Name</td>
+                <td>price</td>
+                <td>quantity</td>
+                <td>description</td>
+                <td>status</td>
+                <td>created</td>
+                <td>photo</td>
+                <td>categoryID</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for (pd of products; track pd) {
+                <tr>
+                    <td>{{pd.id}}</td>
+                    <td>{{pd.name}}</td>
+                    <td>{{pd.price}}</td>
+                    <td>{{pd.quantity}}</td>
+                    <td>{{pd.description}}</td>
+                    <td>{{pd.status}}</td>
+                    <td>{{pd.created}}</td>
+                    <td><img src="assets/images/{{pd.photo}}" width="50" height="50"></td>
+                    <td>{{pd.categoryId}}</td>
+
+                </tr>
+               
+            }
+        </tbody>
+    </table>
+}
+
+
+

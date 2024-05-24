@@ -1,0 +1,92 @@
+<h1 class="format">demo1</h1>
+id : {{id}} <br>
+username : {{username}} <br>
+status : {{status}} <br>
+phone : {{phone}} <br>
+price : {{price}} <br>
+quantity : {{quantity}} <br>
+total : {{quantity*price}} <br>
+{{status ? "show" : "hide"}} <br>
+<img src="assets/images/{{photo}}" alt="" width="{{width}}" height="{{height}}">
+
+<h3>product info</h3>
+<table border="1">
+    <tbody>
+
+            <tr>
+                <td>id</td>
+                <td>{{product.id}}</td>
+            </tr>
+            <tr>
+                <td>name</td>
+                <td>{{product.name}}</td>
+            </tr>
+            <tr>
+                <td>photo</td>
+                <td><img src="assets/images/{{product.photo}}" width="100px" height="100px"> </td>
+            </tr>
+            <tr>
+                <td>price</td>
+                <td>{{product.price}}</td>
+            </tr>
+            <tr>
+                <td>quantity</td>
+                <td>{{product.quantity}}</td>
+            </tr>
+            <tr>
+                <td>Total</td>
+                <td>{{product.quantity * product.price}}</td>
+            </tr>
+
+    </tbody>
+    
+</table>
+
+@if(status){
+    <span style="color: green;">show</span>
+}@else{
+    <span style="color: red;">hide</span>
+}
+
+@if (score>=8) {
+<span>A</span>
+
+}@else if (score>=7) {
+    <span>B</span>
+}@else if (score>= 6) {
+    <span>C</span>
+}@else{
+    <span>D</span>
+}
+
+<br> <br>
+<ul>
+    @for (name of names; track name; let idx = $index) {
+        <li> {{idx}} {{name}}</li>
+        
+    }
+</ul>
+<table>
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>photo</td>
+            <td>price</td>
+            <td>quantity</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (p of products; track p) {
+            <tr>
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td><img src="assets/images/{{p.photo}}" width="50px" height="50px"></td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+            </tr>
+            
+        }
+        
+    </tbody>
+</table>

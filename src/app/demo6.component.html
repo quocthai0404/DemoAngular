@@ -1,0 +1,43 @@
+<h3>demo 6</h3>
+<fieldset>
+    <legend>Search by kw</legend>
+    <input type="text" [(ngModel)]="kw"> <br>
+    <button type="button" (click)="search()">Search</button>
+</fieldset>
+
+<fieldset>
+    <legend>Search by price</legend>
+    Min: <input type="number" [(ngModel)]="min"> <br>
+    Max: <input type="number" [(ngModel)]="max"> <br>
+    <button type="button" (click)="searchByPrice()">Search</button>
+</fieldset>
+
+
+<table border="1">
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name <input type="text" width="40px" (keyup)="filterByName($event)"></td>
+            <td>photo</td>
+            <td>price</td>
+            <td>quantity</td>
+        </tr>
+            
+    </thead>
+    <tbody>
+        @for (p of products; track $index) {
+            <tr>
+                <td>{{p.id}}</td>
+                <td>
+                    
+                    <a [routerLink]="['product-details', {id:p.id}]">{{p.name}}</a>
+                </td>
+                <td>
+                    <img src="assets/images/{{p.photo}}" width="50px" height="50px" [routerLink]="['product-details', {id:p.id}]">
+                </td>
+                <td>{{p.price}}</td>
+                <td>{{p.quantity}}</td>
+            </tr>
+        }
+    </tbody>
+</table>

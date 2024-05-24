@@ -1,0 +1,62 @@
+<h3>demo8</h3>
+countries: 
+<select (change)="selectCountry($event)">
+   
+    @for (country of countries; track $index) {
+        <option value="{{country.id}}">{{country.name}}</option>
+    }
+</select>
+<br>
+id: {{country.id}} <br>
+name: {{country.name}} <br>
+area: {{country.area}} <br>
+<img src="assets/images/{{country.flag}}" width="150" height="150">
+<br>
+cities:
+<select>
+    @for (city of country.cities; track $index) {
+        <option value="{{city.id}}">{{city.name}}</option>
+    }
+</select>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+        </tr>
+        
+    </thead>
+    <tbody>
+        @for (city of country.cities; track $index) {
+            <tr><td>{{city.id}}</td>
+                <td>{{city.name}}</td>
+            </tr>
+            
+        }
+    </tbody>
+</table>
+<br> <br> file: 
+<input type="file" (change)="selectFile($event)">
+@if(fileInfo!=null){
+    Name: {{fileInfo.name}} <br>
+    size: {{fileInfo.size}} <br>
+    type: {{fileInfo.type}} <br>
+} <br> <br>
+files : <input type="file" multiple (change)="selectFiles($event)"> <br>
+@if(files!= null){
+    @for (file of files; track $index) {
+        Name: {{file.name}} <br>
+        size: {{file.size}} <br>
+        type: {{file.type}} <br>
+    }
+    
+}
+
+<input type="radio" value="m" name="gender" checked (change)="selectGender($event)">Male 
+<input type="radio" value="f" name="gender" (change)="selectGender($event)">Female
+<br>
+Temp: <input type="text" [(ngModel)]="temp">
+<input type="radio" value="cToF" name="temp" (change)="selectTemp($event)">C to F
+<input type="radio" value="fToC" name="temp" (change)="selectTemp($event)">F to C
+<br>
+{{result}}

@@ -1,0 +1,27 @@
+
+
+
+
+    
+    
+what is difference between the 2 number? <br>
+<button (click)="start()">Start Subtraction</button> <br>
+
+<input type="number" [(ngModel)]="num1">-<input type="number" [(ngModel)]="num2">= <br>
+<button value="0" (click)="submit($event)">0</button>
+<button value="1" (click)="submit($event)">1</button>
+<button value="2" (click)="submit($event)">2</button>
+<button value="3" (click)="submit($event)">3</button>
+<button value="4" (click)="submit($event)">4</button>
+<button value="5" (click)="submit($event)">5</button>
+<button value="6" (click)="submit($event)">6</button>
+<button value="7" (click)="submit($event)">7</button>
+<button value="8" (click)="submit($event)">8</button>
+<button value="9" (click)="submit($event)">9</button>
+<button value="10"(click)="submit($event)">10</button> <br>
+result: <input type="text" [(ngModel)]="result"> <br>
+you have <input type="text" [(ngModel)]="countCorrect"> correct. <br>
+ and <input type="text" [(ngModel)]="countIncorrect"> incorrect. <br>
+this is <input type="text" [(ngModel)]="correctPercent"> percent correct
+
+
